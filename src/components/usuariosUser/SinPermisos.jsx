@@ -10,7 +10,7 @@ const SinPermisos = () => {
         <div className="containerText">
         <h2 className="bienvenido">Bienvenido(a)!</h2>
         <p className="texto">
-        Gracias por registrarte. en este momento no estás habilitado para gestionar este sitio, por favor espera a que uno de nuestros administradores te otorgue permisos.
+        Gracias por registrarte. En este momento no estás habilitado para gestionar este sitio, por favor espera a que uno de nuestros administradores te otorgue permisos.
       </p>
         </div>
     </div>
