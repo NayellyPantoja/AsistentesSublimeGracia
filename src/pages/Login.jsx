@@ -73,7 +73,7 @@ const Login = () => {
         <img className="loginImage " src={imgLogin} />
         <div className="formulario">
           <div className="textLogin">
-            <h1>BIENVENIDO DE NUEVO</h1>
+            <h1>¡BIENVENIDO!</h1>
           </div>
 
           <Grid item xs={10} md={12} paddingBottom={"2rem"}>

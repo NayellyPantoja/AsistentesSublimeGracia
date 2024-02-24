@@ -101,7 +101,7 @@ const FormAddPerson = () => {
         >
           <div className="formulario register">
             <div className="textLogin">
-              <h1>¡BIENVENIDO!</h1>
+              <h1>REGISTRAR VISITANTES</h1>
             </div>
 
             <Grid item xs={10} md={12} paddingBottom={"2rem"}>

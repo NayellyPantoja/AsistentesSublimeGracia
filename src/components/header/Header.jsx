@@ -48,7 +48,7 @@ const Header = () => {
   return (
     <div className={`containerHeader ${scrolled || location.pathname === "/dashboard" ? "scrolled" : ""}`}>
       <div className="containerLogo">
-        <Link to="/">
+        <Link to="/AgregarAsistente">
           <img className="logoImagen" src={logoImagen} alt="Logo Sublime Gracia" />
           <img className="logoLetras" src={logoLetras} alt="Logo Sublime Gracia" />
         </Link>

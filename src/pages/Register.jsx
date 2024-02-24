@@ -87,6 +87,11 @@ const Register = () => {
       });
     }
     setLoading(false)
+    Swal.fire({
+      icon: "succes",
+      title: "succes",
+      text: "Registro exitoso",
+    });
     navigate("/");
   };
 
