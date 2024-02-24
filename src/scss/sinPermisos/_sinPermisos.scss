@@ -1,0 +1,56 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.register-confirm-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: v.$terciario;
+    .containerText{
+        display: flex;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    padding: 100px;
+    text-align: center;
+    flex-direction: column;
+    width: 70%;
+    box-shadow: 4px 4px 15px var(--color-primary-7);
+    }
+  }
+  
+  .bienvenido {
+    color: #333;
+    font-size: 24px;
+    margin: 10px;
+    text-align: center;
+    justify-content: center;
+  }
+  
+  .texto {
+    color: #666;
+    font-size: 16px;
+  }
+
+  /* tablet */
+@media (max-width: 768px) {
+
+  .register-confirm-container {
+    
+    margin-top:  10%;
+    margin-left: 15%;
+  }
+}
+
+/* telefono */
+@media (max-width: 499px) {
+  .register-confirm-container {
+    padding: 40px;
+    height: 400px;
+  }
+
+  .texto {
+    font-size: 13px;
+  }
+}

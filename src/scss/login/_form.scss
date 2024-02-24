@@ -1,0 +1,134 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.containerForm{
+        width: 100%;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: v.$terciario;
+}
+
+.cardContainer{
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    background-color: v.$blanco;
+    border-radius: 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
+    @include m.tablet{
+        width: 60%;
+    }
+    @include m.telefono{
+        width: 68%;
+    }
+
+    &.register{
+        @include m.tablet{
+            width: 50%;
+        }
+        &.nuevosAsistentes{
+            margin-top: 9rem;
+        }
+    }
+    
+
+    .loginImage {
+       display: none;
+        @include m.tablet{
+            display: block;
+            width: 50%; 
+            background: linear-gradient(to right, v.$verdeBiche, v.$terciario);
+            border-bottom-left-radius: 2rem;
+            border-top-left-radius: 2rem;
+            object-fit:cover;
+        }
+      }
+    .formulario{
+        width: 80%;
+        height: 100%;
+        justify-content: center;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        
+        @include m.tablet{
+        width: 50%;
+        padding: 2rem;
+        }
+
+        &.register{
+            @include m.tablet{
+                width: 80%;
+        }
+    }
+
+        .textLogin{
+            display: flex;
+            width: 100%;
+            align-items: center;
+            justify-content: center;
+            padding-bottom: 3rem;
+        }
+
+        h1{
+            text-align: center;
+            font-size: 2.2rem;
+            padding-top: 3rem;
+            width: 15rem;
+            color: v.$verdeBiche;
+            @include m.telefono{
+                font-size: 3rem;
+                width: 20rem;
+            }
+        }
+        .forgetPassword{
+            display: flex;
+            justify-content: end;
+            padding-bottom: 3rem;
+            a{
+                color: v.$terciario;
+                font-size: 1.5rem;
+            }
+        }
+        
+        .containerBoton{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            
+        }
+
+        .loginBoton{
+            border-radius: 2rem;
+                color: v.$blanco;
+                width: 100%;
+                background: linear-gradient(to right, v.$secundario, v.$terciario);
+                border: none;
+                font-size: 1.5rem;
+                padding: .8rem;
+                margin-bottom: 1.8rem;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
+            &:hover{
+                cursor: pointer;
+            }
+        }
+        .registro{
+            text-align: center;
+            color: v.$verdeBiche;
+            font-size: 1.5rem;
+            padding-bottom: 2rem;
+            &::after{
+                content: '';
+                display: block;
+                align-items: center;
+                height: .2rem;
+                width: 100%;
+                background-color: v.$verdeBiche;
+            }
+        }
+    }
+}

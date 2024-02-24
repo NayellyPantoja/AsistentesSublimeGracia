@@ -1,0 +1,41 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+
+.containerHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 6rem;
+    width: 100%;
+    padding: 0 2rem;
+    background-color: v.$secundario;
+    overflow: hidden;
+    gap: 2rem;
+    position: fixed;
+    z-index: 10;
+
+    @include m.tablet{
+        padding: 1rem 7rem;
+        height: 8rem;
+    }
+    &.scrolled{
+        background-color: v.$secundario;
+        .itemMenu{
+            &:hover,
+            &.activeLink,
+            &:hover .iconMenu,
+            &.activeLink .iconMenu{
+                color: v.$verdeOscuro
+            }
+            &:hover{
+                color: v.$verdeOscuro
+            };
+            &.activeLink{
+                color: v.$verdeOscuro;
+                &::after{
+                    background-color: v.$verdeOscuro;
+                }
+        }
+    }
+}
+}

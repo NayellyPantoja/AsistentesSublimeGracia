@@ -1,0 +1,108 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+
+.containerLogo{
+    width: 15rem;
+    padding: .3rem 0;
+    display: flex;
+    align-items: center;
+    @include m.tablet{
+        width: 30rem;
+    }
+    .logoImagen{
+        width: 2.5rem;
+        @include m.telefono{
+            width: 12.5%
+        }
+    };
+    .logoLetras{
+        display: none;
+        @include m.telefono{
+            display: inline;
+            width: 35%;
+        }
+    };
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+.containerMenu{
+    width: 5rem;
+    display: flex;
+    justify-content: right;
+    @include m.telefono{
+        width: 60%;
+        gap: 4rem;
+        align-items: center;
+    };
+
+    .svg-inline--fa{
+        color: v.$blanco;
+        width: 2.6rem;
+        height: 2.6rem;
+        &:hover{
+            color: v.$secundario;
+            cursor: pointer;
+            
+        }
+    }
+    &.sidebarOpen{
+        background-color: v.$secundario;
+        width: 65%;
+        height: 50vh;
+        position: fixed;
+        right: 0;
+        top: 0;
+        flex-direction: column;
+        justify-content: center;
+        transition: all .3s ease;
+        align-items: center;
+        padding: 1rem;
+        z-index: 100;
+        border-bottom-left-radius: 1rem;
+        gap:0;
+        @include m.telefono{
+            width: 45%;
+        }
+    }
+
+    .itemMenu{
+        color: v.$blanco;
+        font-size: 1.5rem;
+        text-align: center;
+        &:hover,
+        &.activeLink,
+        &:hover .iconMenu,
+        &.activeLink .iconMenu {
+            color: v.$verdeOscuro;  
+        }
+        
+        &.sidebarOpen{
+            height: 15%;
+            display: flex;
+            align-items: center;
+            &::after{
+                content: none;
+            }
+      
+            &:hover,
+            &.activeLink,
+            &:hover .iconMenu,
+            &.activeLink .iconMenu {
+                    color: v.$verdeOscuro;
+            }
+    }
+
+    .iconMenu{
+        width: 1.5rem;
+        height: 1.5rem;
+        
+    }
+    
+    }
+        
+  
+};
+    
+

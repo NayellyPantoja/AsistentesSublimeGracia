@@ -1,0 +1,118 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+// botones ce cancel y ok de calendadio
+.MuiDialogActions-root{
+    &.MuiDialogActions-spacing{
+        &.css-knqc4i-MuiDialogActions-root{
+            display: none;
+        }
+    }
+} 
+
+//Header de calendario (mes, dia)
+.MuiPickersToolbar-root{
+    &.MuiDatePickerToolbar-root{
+        &.css-1eurbeq-MuiPickersToolbar-root-MuiDatePickerToolbar-root{
+            display: none;
+        }
+    }
+}  
+
+//boton para seleccionar año
+.MuiButtonBase-root{
+    &.MuiIconButton-root{
+        &.MuiIconButton-sizeSmall{
+            &.MuiPickersCalendarHeader-switchViewButton{
+                &.css-12mkn7b-MuiButtonBase-root-MuiIconButton-root-MuiPickersCalendarHeader-switchViewButton{
+                    display: none;
+                }
+            }
+        }
+    }
+}    
+
+//iconos para pasar de mes (siguiente y anterior)
+.MuiPickersArrowSwitcher-root{
+    &.css-9reuh9-MuiPickersArrowSwitcher-root{
+        display: none;
+    }
+} 
+
+// estilos de cada mes del calendario
+.MuiCalendarPicker-root{
+    &.css-169iwlq-MuiCalendarPicker-root{
+    display: flex;
+    flex-direction: column;
+    width: 22rem;
+    margin: 0 2rem;
+}
+}
+
+.MuiPickerStaticWrapper-content{
+    &.css-xelq0e-MuiPickerStaticWrapper-content{
+        min-width: 22rem;
+    }
+}
+
+.MuiPickerStaticWrapper-root{
+    &.css-u0soqy-MuiPickerStaticWrapper-root{
+        width: 22rem;
+    } 
+}
+
+.css-sf5t6v-PrivatePickersSlideTransition-root-MuiDayPicker-slideTransition{
+    height: 10rem;
+}
+.PrivatePickersSlideTransition-root{
+    &.MuiDayPicker-slideTransition{
+        &.css-sf5t6v-PrivatePickersSlideTransition-root-MuiDayPicker-slideTransition{
+            min-height: 11.5rem;
+        }
+    }
+}  
+
+
+.MuiPickersFadeTransitionGroup-root{
+    &.MuiCalendarPicker-viewTransitionContainer{
+        &.css-15dbmtb-MuiPickersFadeTransitionGroup-root-MuiCalendarPicker-viewTransitionContainer{
+            min-height: 11.5rem;
+        }
+    }
+} 
+
+// contenedor de semanas 
+.css-ghi3gg-MuiDayPicker-weekContainer{
+    height: 2rem;
+}
+
+// contenedor modal
+.css-1vcokmn-MuiCalendarOrClockPicker-root{
+    width: 20rem;
+    height: 20rem;
+}
+
+//dia azul resaltado en calendario
+.MuiButtonBase-root{
+    &.MuiPickersDay-root{
+        &.MuiPickersDay-dayWithMargin{
+                height: 2rem;
+        }
+    }
+}   
+
+.closeModal{
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 2rem;
+    color: v.$secundario;
+    &:hover{
+        cursor: pointer;
+        color: v.$verdeOscuro;
+    }
+}
+
+
+
+
