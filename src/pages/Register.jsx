@@ -24,7 +24,7 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     // Validar que todos los campos estén llenos
     if (!user.nombre || !user.apellido || !user.email || !user.password) {
       Swal.fire({
@@ -34,7 +34,7 @@ const Register = () => {
       });
       return;
     }
-
+  
     // Validar que el correo tenga un formato válido
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(user.email)) {
@@ -45,7 +45,7 @@ const Register = () => {
       });
       return;
     }
-
+  
     // Validar que la contraseña cumpla con los requisitos
     const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
     if (!passwordRegex.test(user.password)) {
@@ -56,27 +56,23 @@ const Register = () => {
       });
       return;
     }
-
-    const asistentesCollection = collection(db, "users");
-    const q = query(
-      asistentesCollection,
-      where("nombre", "==", user.nombre),
-      where("apellido", "==", user.apellido)
-    );
+  
+    const usersCollection = collection(db, "users");
+    const q = query(usersCollection, where("email", "==", user.email));
     const querySnapshot = await getDocs(q);
-
+  
     if (!querySnapshot.empty) {
-      // Si ya existe un usuario con el mismo nombre y apellido, mostrar un SweetAlert de error
+      // Si ya existe un usuario con el mismo correo electrónico, mostrar un SweetAlert de error
       Swal.fire({
         icon: "error",
         title: "Error",
-        text: "Ya existe un usuario registrado con el mismo nombre y apellido.",
+        text: "Ya existe un usuario registrado con este correo electrónico.",
       });
       return; // Detener la ejecución de la función
     }
-
+  
     // Registro de usuario
-    setLoading(true)
+    setLoading(true);
     let res = await signUp(user);
     if (res.user.uid) {
       await setDoc(doc(db, "users", res.user.uid), {
@@ -86,11 +82,11 @@ const Register = () => {
         apellido: user.apellido,
       });
     }
-    setLoading(false)
+    setLoading(false);
     Swal.fire({
-      icon: "succes",
-      title: "succes",
-      text: "Registro exitoso",
+      icon: "success",
+      title: "Registro exitoso",
+      text: "¡Gracias por registrarte!",
     });
     navigate("/");
   };
