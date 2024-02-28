@@ -70,7 +70,7 @@ const Nuevos = () => {
               >
                 Visitas
               </TableCell>
-              <TableCell
+              {/* <TableCell
                 align="left"
                 style={{
                   fontSize: "1.2rem",
@@ -80,7 +80,7 @@ const Nuevos = () => {
                 }}
               >
                 Detalle 
-              </TableCell>
+              </TableCell> */}
             </TableRow>
           </TableHead>
           <TableBody>
@@ -105,7 +105,7 @@ const Nuevos = () => {
                 >
                   {asistente?.diasAsistidos?.length}
                 </TableCell>
-                <TableCell
+                {/* <TableCell
                   component="th"
                   scope="row"
                   align="left"
@@ -124,7 +124,7 @@ const Nuevos = () => {
                       setEndDate={setEndDate}
                     />
                   )}
-                </TableCell>
+                </TableCell> */}
               </TableRow>
             ))}
           </TableBody>

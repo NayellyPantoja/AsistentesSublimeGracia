@@ -1,19 +1,6 @@
 import { useEffect, useState } from "react";
 import { collection, getDocs, doc, writeBatch } from "firebase/firestore";
 import { db } from "../../firebaseConfig";
-import {
-  Paper,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-  TextField,
-  Checkbox,
-  Button,
-  MenuItem,
-} from "@mui/material";
 import Swal from "sweetalert2";
 
 const AsistenciaNuevos = () => {
@@ -107,121 +94,62 @@ const AsistenciaNuevos = () => {
       
 
       <div className="containerFiltros">
-      <TextField
-        id="registrador"
-        select
-        label="Registrador"
-        value={registradorSeleccionado || ""}
-        onChange={handleRegistradorChange}
-        className="registradorAsistencia"
-      >
-        {asistentes
-          .map((asistente) => asistente.registrador)
-          .filter((value, index, self) => self.indexOf(value) === index) // Filtra duplicados
-          .map((registrador) => (
-            <MenuItem key={registrador} value={registrador}>
-              {registrador}
-              {console.log(
-                "registradorSeleccionado: ",
-                registradorSeleccionado
-              )}
-            </MenuItem>
-          ))}
-      </TextField>
-        <TextField
+      <select
+          id="registrador"
+          value={registradorSeleccionado || ""}
+          onChange={handleRegistradorChange}
+          className="registradorAsistencia"
+        >
+          <option value="">Seleccionar Registrador</option>
+          {asistentes
+            .map((asistente) => asistente.registrador)
+            .filter((value, index, self) => self.indexOf(value) === index) // Filtra duplicados
+            .map((registrador) => (
+              <option key={registrador} value={registrador}>
+                {registrador}
+              </option>
+            ))}
+        </select>
+        <input
           id="fecha"
-          label="Fecha"
           type="date"
           className="fechaAsistencia"
-          defaultValue={new Date().toISOString().split("T")[0]}
-          InputLabelProps={{
-            shrink: true,
-          }}
+          value={fecha}
           onChange={(e) => setFecha(e.target.value)}
         />
       </div>
 
-      <TableContainer component={Paper}>
-        <Table aria-label="simple table">
-          <TableHead>
-            <TableRow>
-              <TableCell
-                align="left"
-                style={{
-                  fontSize: "1.2rem",
-                  fontWeight: "bolder",
-                  textTransform: "uppercase",
-                }}
+     
+      <table className="table">
+        <thead>
+          <tr className="contenedorTituloTabla">
+            <th className="encabezadoTabla nombre">NOMBRE</th>
+            <th className="encabezadoTabla">ASISTENCIA</th>
+            <th className="encabezadoTabla">REGISTRADO POR</th>
+          </tr>
+        </thead>
+        <tbody>
+          {asistentesFiltrados.map((asistente) => (
+            <tr className="contenedorAsistente" key={asistente.id} >
+              <td className="contenidoTabla">{`${asistente.nombre} ${asistente.apellido}`}</td>
+              <td
+                onClick={() => handleSelectAsistente(asistente)}
+                className="contenidoTabla checkboxCell"
               >
-                Nombre
-              </TableCell>
-
-              <TableCell
-                align="left"
-                style={{
-                  fontSize: "1.2rem",
-                  fontWeight: "bolder",
-                  textTransform: "uppercase",
-                  textAlign: "center"
-                }}
-              >
-                Asistencia
-              </TableCell>
-              <TableCell
-                align="left"
-                style={{
-                  fontSize: "1.2rem",
-                  fontWeight: "bolder",
-                  textTransform: "uppercase",
-                  textAlign: "center"
-                }}
-              >
-                Registrado por
-              </TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {asistentesFiltrados.map((asistente) => (
-              <TableRow
-                key={asistente.id}
-                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-              >
-                <TableCell
-                  component="th"
-                  scope="row"
-                  align="left"
-                  style={{ fontSize: "1.2rem", textTransform: "uppercase" }}
-                >
-                  {`${asistente.nombre} ${asistente.apellido}`}
-                </TableCell>
-                <TableCell
-                  component="th"
-                  scope="row"
-                  align="left"
-                  style={{ fontSize: "1.2rem", textAlign: "center" }}
-                  onClick={() => handleSelectAsistente(asistente)}
-                >
-                  <Checkbox
-                    checked={asistentesSeleccionados.includes(asistente.id)}
-                    disabled={!fecha}
-                  />
-                </TableCell>
-                <TableCell
-                  component="th"
-                  scope="row"
-                  align="left"
-                  style={{ fontSize: "1.2rem", textTransform: "uppercase",textAlign: "center" }}
-                >
-                  {asistente.registrador}
-                </TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
-      <Button onClick={handleFinalizar} className="buttonAsistenciaNuevos">
-        Finalizar
-      </Button>
+                <input
+                  type="checkbox"
+                  checked={asistentesSeleccionados.includes(asistente.id)}
+                  disabled={!fecha}
+                />
+              </td>
+              <td className="contenidoTabla registrador">{asistente.registrador}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <button onClick={handleFinalizar} className="buttonAsistenciaNuevos">
+        FINALIZAR
+      </button>
     </div>
   );
 };

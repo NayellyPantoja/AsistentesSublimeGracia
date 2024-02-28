@@ -19,6 +19,12 @@ const FormAddPerson = () => {
   const [isChange, setIsChange] = useState(false);
   const [loading, setLoading] = useState(false);
   const { user } = useContext(AuthContext);
+  const fechaActual = new Date();
+  const year = fechaActual.getFullYear();
+  const month = String(fechaActual.getMonth() + 1).padStart(2, "0"); 
+  const day = String(fechaActual.getDate()).padStart(2, "0");
+
+  const fechaAsistencia = `${year}-${month}-${day}`;
   const [nuevo, setNuevo] = useState({
     nombre: "",
     apellido: "",
@@ -26,14 +32,13 @@ const FormAddPerson = () => {
     barrio: "",
     telefono: "",
     registrador: user.nombre + " " + user.apellido,
-    diasAsistidos: [new Date().toISOString()]
+    diasAsistidos: [fechaAsistencia],
   });
 
-  console.log(nuevo);
 
   const handleChange = (e) => {
-    setNuevo((prevNuevo) => ({
-      ...prevNuevo,
+    setNuevo(() => ({
+      ...nuevo,
       [e.target.name]: e.target.value,
     }));
   };
@@ -42,13 +47,13 @@ const FormAddPerson = () => {
     e.preventDefault();
 
     if (!nuevo.nombre || !nuevo.apellido) {
-        Swal.fire({
-          icon: "warning",
-          title: "Error",
-          text: "Por favor, completa ingresa nombre y apellido.",
-        });
-        return; // Detener la ejecución de la función
-      }
+      Swal.fire({
+        icon: "warning",
+        title: "Error",
+        text: "Por favor, completa ingresa nombre y apellido.",
+      });
+      return; // Detener la ejecución de la función
+    }
 
     // Verificar si el nombre y apellido ya existen en la base de datos
     const asistentesCollection = collection(db, "asistentes");
@@ -70,11 +75,11 @@ const FormAddPerson = () => {
     }
 
     // Si no existe, crear el nuevo asistente
-    setLoading(true)
+    setLoading(true);
     const nuevosCollection = collection(db, "asistentes");
     await setDoc(doc(nuevosCollection), nuevo);
     setIsChange(true);
-    setLoading(false)
+    setLoading(false);
     Swal.fire({
       icon: "success",
       title: "Registro exitoso",
@@ -87,8 +92,9 @@ const FormAddPerson = () => {
       barrio: "",
       telefono: "",
       registrador: user.nombre + " " + user.apellido,
+      diasAsistidos: [new Date().toISOString().split("T")[0]],
     });
-    isChange
+    isChange;
   };
 
   return (

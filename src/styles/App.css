@@ -770,41 +770,60 @@ a {
   }
 }
 
-.css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root {
-  background-color: #fff;
-}
-
 .containerTable {
   height: 100%;
   padding-bottom: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
-
-.containerFiltros {
+.containerTable .containerFiltros {
   display: flex;
   width: 100%;
   justify-content: space-between;
   padding-bottom: 2rem;
 }
-.containerFiltros .css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root {
-  width: 12rem;
-}
-@media (min-width: 480px) {
-  .containerFiltros .css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root {
-    width: 13rem;
+@media (min-width: 768px) {
+  .containerTable .containerFiltros {
+    width: 70rem;
   }
+}
+.containerTable .table {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 1rem;
+  padding: 1rem 2rem;
 }
 @media (min-width: 768px) {
-  .containerFiltros .css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root {
-    width: 20rem;
+  .containerTable .table {
+    width: 70rem;
   }
 }
-@media (min-width: 1024px) {
-  .containerFiltros .css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root {
-    width: 25rem;
-  }
+.containerTable .table .contenedorAsistente {
+  font-size: 1.2rem;
+  text-transform: uppercase;
 }
-
-.MuiButton-textSizeMedium.buttonAsistenciaNuevos {
+.containerTable .table .contenedorTituloTabla {
+  font-size: 1.3rem;
+}
+.containerTable .table .encabezadoTabla {
+  text-align: center;
+  padding: 1.5rem 0;
+}
+.containerTable .table .encabezadoTabla.nombre {
+  text-align: left;
+}
+.containerTable .table .contenidoTabla {
+  padding: 1rem 0;
+}
+.containerTable .table .contenidoTabla.checkboxCell {
+  text-align: center;
+}
+.containerTable .table .contenidoTabla.registrador {
+  text-align: center;
+}
+.containerTable .buttonAsistenciaNuevos {
   background-color: #54a634;
   font-size: 1.3rem;
   color: #fff;
@@ -812,6 +831,9 @@ a {
   display: block;
   margin: 0 auto;
   margin-top: 2rem;
+  border: 0px;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
 }
 
 .MuiDialogActions-root.MuiDialogActions-spacing.css-knqc4i-MuiDialogActions-root {

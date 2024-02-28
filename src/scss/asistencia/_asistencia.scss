@@ -2,36 +2,60 @@
 @use 'base/mixins' as m;
 
 
-.css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root{
-    background-color: v.$blanco;
-}
-
 .containerTable{
     height: 100%;
     padding-bottom: 4rem;
-}
-
-.containerFiltros{
     display: flex;
-    width: 100%;
-    justify-content: space-between;
-    padding-bottom: 2rem;  
-    .css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root{
-            width: 12rem;
-            @include m.telefono{
-                width: 13rem;
-            }
-            @include m.tablet{
-                width: 20rem;
-            }
-            @include m.desktop{
-                width: 25rem;
-            }
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+    .containerFiltros{
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        padding-bottom: 2rem;  
+        @include m.tablet{
+            width: 70rem;
+        }
     }
-}
-
-.MuiButton-textSizeMedium{
-    &.buttonAsistenciaNuevos{
+    
+    .table{
+        width: 100%;
+        background-color: v.$blanco;
+        border-radius: 1rem;
+        padding: 1rem 2rem;
+        @include m.tablet{
+            width: 70rem;
+        }
+        .contenedorAsistente{
+            font-size: 1.2rem;
+            text-transform: uppercase;
+        }
+        .contenedorTituloTabla{
+            font-size: 1.3rem;
+        }
+        .encabezadoTabla{
+            text-align: center;
+            padding: 1.5rem 0;
+            &.nombre{
+                text-align: left;
+            }
+            
+        }
+        
+        .contenidoTabla{
+            padding: 1rem 0;
+            &.checkboxCell{
+                text-align: center;
+            }
+            &.registrador{
+                text-align: center;
+            }
+        }
+        
+    }
+    .buttonAsistenciaNuevos{
         background-color: v.$secundario;
         font-size: 1.3rem;
         color: v.$blanco;
@@ -39,5 +63,10 @@
         display: block;
         margin: 0 auto;
         margin-top: 2rem;
+        border: 0px;
+        padding: 1rem 2rem;
+        border-radius: 1rem;
     }
 }
+
+
