@@ -103,7 +103,7 @@ const Nuevos = () => {
                   align="left"
                   style={{ fontSize: "1.2rem", textAlign: "center"}}
                 >
-                  {asistente?.diasAsistidos.length}
+                  {asistente?.diasAsistidos?.length}
                 </TableCell>
                 <TableCell
                   component="th"
