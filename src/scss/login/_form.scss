@@ -18,6 +18,7 @@
     background-color: v.$blanco;
     border-radius: 2rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
+    margin-bottom: 4rem;
     @include m.tablet{
         width: 60%;
     }
@@ -130,5 +131,42 @@
                 background-color: v.$verdeBiche;
             }
         }
+    }
+}
+
+
+//Label form login
+.MuiInputLabel-sizeMedium{
+    &.MuiInputLabel-outlined{
+        &.css-1jy569b-MuiFormLabel-root-MuiInputLabel-root{
+            font-size: 1.5rem;
+        }
+    }
+}  
+
+//input form
+.MuiInputBase-input{
+    &.MuiOutlinedInput-input{
+        &.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input{
+            font-size: 1.5rem;
+        }
+    }
+}  
+
+//label form registro
+.MuiInputLabel-outlined{
+    &.css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root{
+        font-size: 1.5rem;
+    }
+} 
+
+//borde nombre y apellido
+.MuiInputBase-formControl{
+    &.css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root{
+        font-size: 1.5rem;
+    }
+    //otros bordes de inputs como dirección, telefono, etc
+    &.css-md26zr-MuiInputBase-root-MuiOutlinedInput-root{
+        font-size: 1.5rem;
     }
 }

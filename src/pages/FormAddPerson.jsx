@@ -31,15 +31,18 @@ const FormAddPerson = () => {
     direccion: "",
     barrio: "",
     telefono: "",
+    edad: "",
+    nota: "",
     registrador: user.nombre + " " + user.apellido,
     diasAsistidos: [fechaAsistencia],
   });
 
 
   const handleChange = (e) => {
+    const { name, value } = e.target;
     setNuevo(() => ({
       ...nuevo,
-      [e.target.name]: e.target.value,
+      [name]: value.toUpperCase(),
     }));
   };
 
@@ -91,6 +94,8 @@ const FormAddPerson = () => {
       direccion: "",
       barrio: "",
       telefono: "",
+      edad: "",
+      nota: "",
       registrador: user.nombre + " " + user.apellido,
       diasAsistidos: [new Date().toISOString().split("T")[0]],
     });
@@ -129,6 +134,15 @@ const FormAddPerson = () => {
             <Grid item xs={10} md={12} paddingBottom={"2rem"}>
               <TextField
                 onChange={handleChange}
+                name="edad"
+                label="Edad"
+                value={nuevo.telefono}
+                fullWidth
+              />
+            </Grid>
+            <Grid item xs={10} md={12} paddingBottom={"2rem"}>
+              <TextField
+                onChange={handleChange}
                 name="direccion"
                 label="Direccion"
                 value={nuevo.direccion}
@@ -148,12 +162,22 @@ const FormAddPerson = () => {
               <TextField
                 onChange={handleChange}
                 name="telefono"
-                label="Telefono*"
+                label="Telefono"
                 value={nuevo.telefono}
                 fullWidth
               />
             </Grid>
-
+            <Grid item xs={10} md={12} paddingBottom={"2rem"}>
+              <TextField
+                onChange={handleChange}
+                name="nota"
+                label="Nota"
+                value={nuevo.barrio}
+                fullWidth
+                multiline 
+                rows={6}
+              />
+            </Grid>
             <div className="containerBoton">
               <button type="submit" className="loginBoton">
                 {loading ? "CARGANDO..." : "REGISTRAR"}
