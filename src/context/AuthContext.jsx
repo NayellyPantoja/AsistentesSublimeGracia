@@ -17,6 +17,9 @@ const AuthContextComponent = ({ children }) => {
     boxShadow: 24,
     p: 4,
     borderRadius: 2,
+    "@media (min-width: 768px)": {
+      width: "60%",
+    },
   };
 
   const handleLogin = (userLogged) => {

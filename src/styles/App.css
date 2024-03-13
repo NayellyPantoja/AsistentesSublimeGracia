@@ -999,11 +999,6 @@ select {
   justify-content: center;
   align-items: center;
 }
-@media (min-width: 768px) {
-  .detalleNuevo {
-    justify-content: left;
-  }
-}
 .detalleNuevo .containerIcon {
   padding-right: 1rem;
 }
@@ -1020,13 +1015,14 @@ select {
 }
 .detalleNuevo .contenedorTituloTabla .encabezadoTabla {
   font-size: 1.5rem;
+  font-weight: bold;
   color: #97b462;
 }
 .detalleNuevo .contenedorInfoTabla {
   display: flex;
   flex-direction: column;
   line-height: 2rem;
-  font-weight: lighter;
+  font-weight: bold;
 }
 .detalleNuevo .contenedorInfoTabla .contenidoTabla {
   font-size: 1.5rem;
@@ -1046,6 +1042,7 @@ select {
   height: 3rem;
   padding: 0.5rem;
   width: 12rem;
+  font-weight: bold;
 }
 .detalleAsistencia .datosNuevo {
   display: flex;
@@ -1059,7 +1056,7 @@ select {
 .detalleAsistencia .datosNuevo .contenedorBodyMeses .contenidoTabla {
   display: flex;
   font-size: 1.5rem;
-  font-weight: lighter;
+  font-weight: bold;
   padding: 0.5rem;
   width: 12rem;
   justify-content: center;
