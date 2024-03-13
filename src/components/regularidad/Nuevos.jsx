@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
-import "react-datepicker/dist/react-datepicker.css";
 import { db } from "../../firebaseConfig";
 import {  Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
 import { Visibility } from "@mui/icons-material";
