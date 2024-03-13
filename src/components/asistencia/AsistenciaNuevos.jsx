@@ -207,6 +207,7 @@ const AsistenciaNuevos = () => {
                 </tr>
               ))}
         </tbody>
+        
       </table>
       <button onClick={handleFinalizar} className="buttonAsistenciaNuevos">
         FINALIZAR

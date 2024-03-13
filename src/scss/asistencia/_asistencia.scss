@@ -9,6 +9,13 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    .totalAsistentes{
+        width: 100%;
+        text-align: left;
+        padding: 2rem 0;
+        font-size: 1.5rem;
+        
+    }
     
     .containerFiltros{
         display: flex;

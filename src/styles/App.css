@@ -799,6 +799,12 @@ a {
   align-items: center;
   flex-direction: column;
 }
+.containerTable .totalAsistentes {
+  width: 100%;
+  text-align: left;
+  padding: 2rem 0;
+  font-size: 1.5rem;
+}
 .containerTable .containerFiltros {
   display: flex;
   width: 100%;
