@@ -2,16 +2,20 @@ import { useEffect, useState } from "react";
 import { collection, getDocs, doc, writeBatch } from "firebase/firestore";
 import { db } from "../../firebaseConfig";
 import Swal from "sweetalert2";
+import Select from "react-select";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
 const AsistenciaNuevos = () => {
   const [asistentesSeleccionados, setAsistentesSeleccionados] = useState([]);
+  const [nombreAsistenteSeleccionado, setNombreAsistenteSeleccionado] =
+    useState("");
   const [registradorSeleccionado, setRegistradorSeleccionado] = useState(null);
   const [asistentesFiltrados, setAsistentesFiltrados] = useState([]);
   const [isChange, setIsChange] = useState(false);
   const [asistentes, setAsistentes] = useState([]);
   const [loading, setLoading] = useState(false);
   const [fecha, setFecha] = useState("");
-
   useEffect(() => {
     setIsChange(false);
     const dataFetch = async () => {
@@ -39,7 +43,7 @@ const AsistenciaNuevos = () => {
     } else {
       setAsistentesFiltrados(asistentes);
     }
-  }, [asistentes, registradorSeleccionado]);
+  }, [asistentes, registradorSeleccionado, isChange]);
 
   const handleRegistradorChange = (event) => {
     setRegistradorSeleccionado(event.target.value);
@@ -89,20 +93,22 @@ const AsistenciaNuevos = () => {
     }
   };
 
+  const handleCloseNombreAsistSeleccionado = () => {
+    setNombreAsistenteSeleccionado("")
+  }
+
   return (
     <div className="containerTable">
-      
-
       <div className="containerFiltros">
-      <select
-          id="registrador"
+        <div className="sectionFiltros">
+        <select
           value={registradorSeleccionado || ""}
           onChange={handleRegistradorChange}
           className="registradorAsistencia"
         >
           <option value="">Seleccionar Registrador</option>
           {asistentes
-            .map((asistente) => asistente.registrador)
+            ?.map((asistente) => asistente.registrador)
             .filter((value, index, self) => self.indexOf(value) === index) // Filtra duplicados
             .map((registrador) => (
               <option key={registrador} value={registrador}>
@@ -110,6 +116,30 @@ const AsistenciaNuevos = () => {
               </option>
             ))}
         </select>
+        <div className="containerFiltroXNombre">
+        <Select
+          id="asistente"
+          className="filtrarNombre"
+          value={asistentes?.find(
+            (asistente) => asistente?.id === nombreAsistenteSeleccionado
+          )}
+          onChange={(selectedOption) => {
+            setNombreAsistenteSeleccionado(selectedOption),
+              setIsChange(!isChange);
+          }}
+          options={asistentes.map((asistente) => ({
+            value: asistente.id,
+            label: `${asistente.nombre} ${asistente.apellido}`,
+          }))}
+        />
+        {nombreAsistenteSeleccionado && <FontAwesomeIcon
+          icon={faXmark}
+          onClick={handleCloseNombreAsistSeleccionado}
+          className="closeFiltroNombre"
+        />}
+        
+        </div>
+        
         <input
           id="fecha"
           type="date"
@@ -117,9 +147,10 @@ const AsistenciaNuevos = () => {
           value={fecha}
           onChange={(e) => setFecha(e.target.value)}
         />
+        </div>
+        
       </div>
 
-     
       <table className="table">
         <thead>
           <tr className="contenedorTituloTabla">
@@ -129,22 +160,52 @@ const AsistenciaNuevos = () => {
           </tr>
         </thead>
         <tbody>
-          {asistentesFiltrados.map((asistente) => (
-            <tr className="contenedorAsistente" key={asistente.id} >
-              <td className="contenidoTabla">{`${asistente.nombre} ${asistente.apellido}`}</td>
-              <td
-                onClick={() => handleSelectAsistente(asistente)}
-                className="contenidoTabla checkboxCell"
-              >
-                <input
-                  type="checkbox"
-                  checked={asistentesSeleccionados.includes(asistente.id)}
-                  disabled={!fecha}
-                />
-              </td>
-              <td className="contenidoTabla registrador">{asistente.registrador}</td>
-            </tr>
-          ))}
+          {nombreAsistenteSeleccionado
+            ? asistentes
+                .filter(
+                  (asistente) => asistente.id === nombreAsistenteSeleccionado.value
+                )
+                .map(
+                  (asistente) =>
+                    asistente.id === nombreAsistenteSeleccionado.value && (
+                      <tr className="contenedorAsistente" key={asistente.id}>
+                        <td className="contenidoTabla">{`${asistente.nombre} ${asistente.apellido}`}</td>
+                        <td
+                          onClick={() => handleSelectAsistente(asistente)}
+                          className="contenidoTabla checkboxCell"
+                        >
+                          <input
+                            type="checkbox"
+                            checked={asistentesSeleccionados.includes(
+                              asistente.id
+                            )}
+                            disabled={!fecha}
+                          />
+                        </td>
+                        <td className="contenidoTabla registrador">
+                          {asistente.registrador}
+                        </td>
+                      </tr>
+                    )
+                )
+            : asistentesFiltrados.map((asistente) => (
+                <tr className="contenedorAsistente" key={asistente.id}>
+                  <td className="contenidoTabla">{`${asistente.nombre} ${asistente.apellido}`}</td>
+                  <td
+                    onClick={() => handleSelectAsistente(asistente)}
+                    className="contenidoTabla checkboxCell"
+                  >
+                    <input
+                      type="checkbox"
+                      checked={asistentesSeleccionados.includes(asistente.id)}
+                      disabled={!fecha}
+                    />
+                  </td>
+                  <td className="contenidoTabla registrador">
+                    {asistente.registrador}
+                  </td>
+                </tr>
+              ))}
         </tbody>
       </table>
       <button onClick={handleFinalizar} className="buttonAsistenciaNuevos">

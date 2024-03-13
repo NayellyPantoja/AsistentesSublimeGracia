@@ -12,7 +12,7 @@
     .containerIcon{
         padding-right: 1rem;
         .iconUser{
-            height: 5rem;
+            height: 4rem;
             color: v.$terciario;
         }
     }
@@ -24,7 +24,7 @@
             text-align: left;
             line-height: 2rem;
             .encabezadoTabla{
-                font-size: 1.3rem;
+                font-size: 1.5rem;
                 color: v.$terciario;
             }
         }
@@ -34,7 +34,7 @@
             line-height: 2rem;
             font-weight: lighter;
             .contenidoTabla{
-                font-size: 1.3rem;
+                font-size: 1.5rem;
             }
         }
     }
@@ -48,7 +48,7 @@
     width: 100%;
     padding-top: 3rem;
     .encabezadoTabla{
-        font-size: 1.3rem;
+        font-size: 1.5rem;
         color: v.$terciario;
         height: 3rem;  
         padding: .5rem;
@@ -63,7 +63,7 @@
             display: flex;
             .contenidoTabla{
                 display: flex;
-                font-size: 1.2rem;
+                font-size: 1.5rem;
                 font-weight: lighter;
                 padding: .5rem;
                 width: 12rem;
