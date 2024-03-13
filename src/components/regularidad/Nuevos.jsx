@@ -130,7 +130,7 @@ const Nuevos = () => {
         </Table>
       </TableContainer>
         <div className="totalAsistentes">
-          Número de asistentes registrados: {asistentes.length + 1}
+          Número de asistentes registrados: {asistentes.length}
           </div>
     </div>
   );
