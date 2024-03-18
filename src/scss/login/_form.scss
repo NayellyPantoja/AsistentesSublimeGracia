@@ -155,6 +155,9 @@
 // }
 .css-1x5jdmq{
     font-size: 1.5rem;
+    &:focus{
+        font-size: 1.5rem;
+    }
 }
 
 //label form registro
@@ -165,9 +168,6 @@
 // } 
 .css-p0rm37{
     font-size: 1.5rem;
-    &.Mui-focused{
-        font-size: 1.5rem;
-    }
 }
 
 //borde nombre y apellido

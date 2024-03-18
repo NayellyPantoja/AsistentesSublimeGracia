@@ -101,7 +101,9 @@ const AsistenciaNuevos = () => {
     <div className="containerTable">
       <div className="containerFiltros">
         <div className="sectionFiltros">
-        <select
+          <div className="contentIndividualFiltro">
+            Buscar por registrador
+          <select
           value={registradorSeleccionado || ""}
           onChange={handleRegistradorChange}
           className="registradorAsistencia"
@@ -116,7 +118,10 @@ const AsistenciaNuevos = () => {
               </option>
             ))}
         </select>
+          </div>
+        
         <div className="containerFiltroXNombre">
+        Buscar por nombre del asistente
         <Select
           id="asistente"
           className="filtrarNombre"
@@ -139,7 +144,8 @@ const AsistenciaNuevos = () => {
         />}
         
         </div>
-        
+        <div className="contentIndividualFiltro">
+          Seleccionar fecha de asistencia
         <input
           id="fecha"
           type="date"
@@ -147,6 +153,8 @@ const AsistenciaNuevos = () => {
           value={fecha}
           onChange={(e) => setFecha(e.target.value)}
         />
+        </div>
+        
         </div>
         
       </div>

@@ -3,26 +3,29 @@ import {
     faPersonPraying,
     faVideo,
     faArrowRightFromBracket,
-    faChartLine
+    faChartLine,
+    faEye,
+    faCheck,
+    faList
   } from "@fortawesome/free-solid-svg-icons";
   
   export const routes = [
     {
       id: 1,
       path: "/AgregarAsistente",  
-      text: "Registro de visitantes", 
-      icon:  faHouse },
+      text: "Registrar visitantes", 
+      icon:  faList },
     {
       id: 2,
       path: "/AsistenciaVisitantes",
-      text: "Asistencia de visitantes",
-      icon: faPersonPraying ,
+      text: "Tomar asistencia",
+      icon: faCheck ,
     },
     { 
       id: 3,
       path: "/RegularidadVisitantes", 
-      text: "Regularidad de visitantes",
-      icon: faVideo  
+      text: "Ver asistencia",
+      icon: faEye
   },
   {
     id: 4,

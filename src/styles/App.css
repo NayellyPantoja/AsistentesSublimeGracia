@@ -478,11 +478,11 @@ a {
 .css-1x5jdmq {
   font-size: 1.5rem;
 }
-
-.css-p0rm37 {
+.css-1x5jdmq:focus {
   font-size: 1.5rem;
 }
-.css-p0rm37.Mui-focused {
+
+.css-p0rm37 {
   font-size: 1.5rem;
 }
 
@@ -799,6 +799,12 @@ a {
   align-items: center;
   flex-direction: column;
 }
+.containerTable .containerFiltroRegistro {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 2rem 0;
+  width: 100%;
+}
 .containerTable .totalAsistentes {
   width: 100%;
   text-align: left;
@@ -838,11 +844,15 @@ a {
     justify-content: space-between;
   }
 }
+.containerTable .containerFiltros .sectionFiltros .contentIndividualFiltro {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
 .containerTable .containerFiltros .sectionFiltros .containerFiltroXNombre {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 .containerTable .containerFiltros .sectionFiltros .containerFiltroXNombre .filtrarNombre {
   font-size: 1.5rem;

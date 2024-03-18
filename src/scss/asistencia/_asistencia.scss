@@ -9,6 +9,12 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    .containerFiltroRegistro{
+        display: flex;
+        flex-direction: column;
+        margin: 0 0 2rem 0;
+        width: 100%;
+    }
     .totalAsistentes{
         width: 100%;
         text-align: left;
@@ -42,11 +48,15 @@
                 flex-direction: row;
                 justify-content: space-between;
             }
+            .contentIndividualFiltro{
+                display: flex;
+                flex-direction: column;
+                gap: .5rem;
+            }
             .containerFiltroXNombre{
                 display: flex;
-                justify-content: center;
-                align-items: center;
-                gap: 1rem;
+                flex-direction: column;
+                gap: .5rem;
                 .filtrarNombre{
                     font-size: 1.5rem;
                     width: 100%;
