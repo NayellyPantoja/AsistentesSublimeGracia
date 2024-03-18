@@ -136,7 +136,7 @@ const FormAddPerson = () => {
                 onChange={handleChange}
                 name="edad"
                 label="Edad"
-                value={nuevo.telefono}
+                value={nuevo.edad}
                 fullWidth
               />
             </Grid>
@@ -172,7 +172,7 @@ const FormAddPerson = () => {
                 onChange={handleChange}
                 name="nota"
                 label="Nota"
-                value={nuevo.barrio}
+                value={nuevo.nota}
                 fullWidth
                 multiline 
                 rows={6}
