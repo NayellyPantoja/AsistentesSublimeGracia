@@ -146,28 +146,40 @@
 }  
 
 //input form
-.MuiInputBase-input{
-    &.MuiOutlinedInput-input{
-        &.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input{
-            font-size: 1.5rem;
-        }
-    }
-}  
+// .MuiInputBase-input{
+//     &.MuiOutlinedInput-input{
+//         &.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input{
+//             font-size: 1.5rem;
+//         }
+//     }
+// }
+.css-1x5jdmq{
+    font-size: 1.5rem;
+}
 
 //label form registro
-.MuiInputLabel-outlined{
-    &.css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root{
+// .MuiInputLabel-outlined{
+//     &.css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root{
+//         font-size: 1.5rem;
+//     }
+// } 
+.css-p0rm37{
+    font-size: 1.5rem;
+    &.Mui-focused{
         font-size: 1.5rem;
     }
-} 
+}
 
 //borde nombre y apellido
-.MuiInputBase-formControl{
-    &.css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root{
-        font-size: 1.5rem;
-    }
-    //otros bordes de inputs como dirección, telefono, etc
-    &.css-md26zr-MuiInputBase-root-MuiOutlinedInput-root{
-        font-size: 1.5rem;
-    }
+// .MuiInputBase-formControl{
+//     &.css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root{
+//         font-size: 1.5rem;
+//     }
+//     //otros bordes de inputs como dirección, telefono, etc
+//     &.css-md26zr-MuiInputBase-root-MuiOutlinedInput-root{
+//         font-size: 1.5rem;
+//     }
+// }
+.css-1v4ccyo{
+    font-size: 2rem;
 }
