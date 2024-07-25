@@ -1,14 +1,14 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link, useLocation } from "react-router-dom";
 
-const Navbar = ({ routes, isLogged, user, admin, sidebar, handleLogout }) => {
+const Navbar = ({ routes, isLogged, user, adminNuevos, adminProspMiembros, sidebar, handleLogout }) => {
   const location = useLocation();
 
   return (
     <>
       {routes.map((ruta) => {
-        const isAdmin = isLogged && user.rol === admin;
-        const isVisitorRoute = ["Registro de visitantes", "Asistencia de visitantes", "Regularidad de visitantes"].includes(ruta.text);
+        const isAdmin = isLogged && (user.rol === adminNuevos || user.rol === adminProspMiembros);
+        const isVisitorRoute = ["Registrar visitantes", "Tomar asistencia", "Ver asistencia"].includes(ruta.text);
         if (
           (isAdmin && isLogged && ruta.text !== "Bienvenido") ||
           (!isAdmin && isLogged && ruta.text !== "Dashboard" && !isVisitorRoute) ||
@@ -27,7 +27,7 @@ const Navbar = ({ routes, isLogged, user, admin, sidebar, handleLogout }) => {
                 icon={ruta.icon}
                 className={`iconMenu ${sidebar ? "sidebarOpen" : ""} ${location.pathname === ruta.path ? "activeLink" : ""}`}
               ></FontAwesomeIcon>
-              <span> {ruta.text}</span>
+              <span> {user.rol=== adminProspMiembros ? (ruta.text === "Registrar visitantes" ? "Registrar prospecto miembro" : ruta.text) : ruta.text}</span>
             </Link>
           );
         }

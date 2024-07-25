@@ -15,6 +15,7 @@
         }
     }
     
+    
         .contenedorTituloTabla{
             display: flex;
             flex-direction: column;
@@ -73,3 +74,192 @@
        
     }
 }
+
+.detalleNuevoProspMiembros{
+    display: flex;
+    width: 100%;
+    justify-content: start;
+    align-items: center;
+    @include m.telefono{
+        justify-content: center;
+        align-items: center;
+    }
+    .containerIconProspMiembros{
+        .iconUser{
+            margin-right: 3rem;
+            height: 4rem;
+            color: v.$terciario;
+        }
+    }
+    .nombre{
+        font-size: 1.5rem;
+        color: v.$terciario;
+        height: 3rem;  
+        padding: .5rem;
+        width: 12rem;
+        font-weight: bold;
+    }
+    
+}
+
+.tablaVertical th,
+.tablaVertical td {
+  writing-mode: vertical-lr;
+  text-orientation: mixed;
+  padding: 5px;
+}
+
+.containerProspMiembro{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    .boxImage{
+        position: relative;
+        border-radius: 50%;
+        background-color: v.$verdeOscuro;
+        overflow: hidden;
+        width: 8rem;
+        height: 8rem;
+        margin-top: 1rem;
+        @include m.tablet{
+            width: 14rem;
+            height: 14rem;
+        }
+        &::before{
+            content: '';
+            position: absolute;
+            inset: -1rem 3rem;
+            background: linear-gradient(315deg, v.$backgroundSection, v.$primario);
+            transition: 0.5s;
+            animation: animate 4s linear infinite;
+        }
+       
+        &::after{
+            content: '';
+            position: absolute;
+            inset: 2px;
+            background: v.$blanco;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        @keyframes animate{
+            0%
+            {
+                transform: rotate(0deg);
+            }
+            0%
+            {
+                transform: rotate(360deg);
+            }
+        }
+    }
+    .content{
+        position: absolute;
+        inset: .6rem;
+        border: 2px solid v.$verdeOscuro;
+        z-index: 3;
+        border-radius: 50%;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+            pointer-events: none;
+            z-index: 3;
+        }
+        .iconUser{
+            height: 3rem;
+            color: v.$verdeOscuro;
+            @include m.tablet{
+                height: 7rem;
+            }
+        }
+    }
+    .containerInfoProspMiembros{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        .infoProspMiembros{
+            display: flex;
+            font-size: 1.2rem;
+            color: v.$secundario;
+            padding: 0 .5rem 0 1rem;
+            width: 12rem;
+            font-weight: bold;
+            width: 15rem;
+            align-items: center;
+            &.nombre{
+                color: v.$secundario;
+                height: 2rem;
+                @include m.tablet{
+                    height: 4rem;
+                }
+            }
+            .visibility{
+                margin-left: .7rem;
+                background-color: v.$terciario;
+                border-radius: .3rem;
+                padding: .1rem;
+                &:hover{
+                    cursor: pointer;
+                    color: v.$blanco;
+                    background-color: v.$terciario;
+                    
+                }
+            }
+            span{
+                color: v.$terciario;
+            }
+            @include m.tablet{
+                font-size: 1.5rem;
+            }
+        }
+    }
+    
+    
+}
+
+.sinRegistro{
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
+    display: flex;
+    font-size: 1.2rem;
+    height: 3rem;
+    width: 100%;
+    background-color: rgba(201, 54, 54, 0.374);
+    border-radius: .7rem;
+    align-items: center;
+    padding-left: 1rem;
+    color: rgb(141, 18, 18);
+    .warning{
+        color: rgb(141, 18, 18);
+        padding-right: .5rem ;
+    }
+    &:first-of-type{
+        margin-bottom: 1rem;
+    }
+    @include m.desktop{
+        font-size: 1.4rem;
+    }
+}
+
+.graficTitle{
+    display: flex;
+    justify-content: center;
+    height: 4rem;
+    color: v.$verdeOscuro;
+    align-items: center;
+    font-weight: 700;
+
+}
+
+// .containerGraficos{
+//     display: flex;
+//     width: 100%;
+// }

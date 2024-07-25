@@ -4,11 +4,15 @@ import { Navigate, Outlet } from "react-router-dom"
 
 
 const ProtectedAdmin = () => {
-    const {user} = useContext(AuthContext)
-    const admin = import.meta.env.VITE_ADMIN
+    const {user, isLogged} = useContext(AuthContext)
+    const adminNuevos = import.meta.env.VITE_ADMINNUEVOS
+    const adminProspMiembros = import.meta.env.VITE_ADMINPROSPMIEMBROS
+    
   return <>
   {
-    user?.rol === admin ? <Outlet/> : <Navigate to="/bienvenido"/>
+    isLogged ? 
+      (user?.rol === adminNuevos || user?.rol === adminProspMiembros) ? <Outlet/> : <Navigate to="/bienvenido"/>
+    : <Navigate to="/login"/>
   }
   </>
 }

@@ -1,3 +1,4 @@
+import zIndex from "@mui/material/styles/zIndex";
 import { createContext, useState } from "react";
 
 export const AuthContext = createContext();
@@ -5,6 +6,8 @@ export const AuthContext = createContext();
 const AuthContextComponent = ({ children }) => {
   const [user, setUser] = useState( JSON.parse(localStorage.getItem("userInfo")) || {});
   const [isLogged, setIsLogged] = useState( JSON.parse(localStorage.getItem("isLogged")) || false);
+  const adminNuevos = import.meta.env.VITE_ADMINNUEVOS;
+  const adminProspMiembros = import.meta.env.VITE_ADMINPROSPMIEMBROS;
   const style = {
     display: "flex",
     gap: "4px",
@@ -17,6 +20,7 @@ const AuthContextComponent = ({ children }) => {
     boxShadow: 24,
     p: 4,
     borderRadius: 2,
+    zIndex:100,
     "@media (min-width: 768px)": {
       width: "60%",
     },
@@ -40,12 +44,29 @@ const AuthContextComponent = ({ children }) => {
     localStorage.removeItem("isLogged")
   };
 
+  const [changeFecha, setChangeFecha] = useState(false)
+
+  const motivoInasistencia = {
+    enfermedad: "Enfermedad",
+    enfermedadFamiliar:"Enfermedad familiar" ,
+    trabajo: "Trabajo",
+    vacaciones: "Vacaciones",
+    recursos: "Falta de recursos",
+    apatia: "Apatia",
+    desconocido: "Desconocido"
+  }
+
   let data = {
     user,
     isLogged,
     handleLogin,
     logoutContext,
     style,
+    adminNuevos,
+    adminProspMiembros,
+    motivoInasistencia,
+    changeFecha,
+    setChangeFecha
   };
 
   return <AuthContext.Provider value={data}>{children}</AuthContext.Provider>;

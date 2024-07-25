@@ -75,7 +75,7 @@
         &.activeLink,
         &:hover .iconMenu,
         &.activeLink .iconMenu {
-            color: v.$verdeOscuro;  
+            color: v.$terciario;  
         }
         
         &.sidebarOpen{
@@ -90,7 +90,7 @@
             &.activeLink,
             &:hover .iconMenu,
             &.activeLink .iconMenu {
-                    color: v.$verdeOscuro;
+                    color: v.$terciario;
             }
     }
 

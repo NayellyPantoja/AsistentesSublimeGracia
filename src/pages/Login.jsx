@@ -20,7 +20,8 @@ import Swal from "sweetalert2";
 const Login = () => {
 
   const {handleLogin} = useContext(AuthContext)
-
+  const adminNuevos = import.meta.env.VITE_ADMINNUEVOS;
+  const adminProspMiembros = import.meta.env.VITE_ADMINPROSPMIEMBROS
 
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
@@ -53,7 +54,7 @@ const Login = () => {
         }
         console.log(finalyUser)
         handleLogin(finalyUser)
-        {finalyUser.rol === "user" ? navigate("/bienvenido") : navigate("/AgregarAsistente")}
+        {finalyUser.rol === adminNuevos || finalyUser.rol === adminProspMiembros ? navigate("/") : navigate("/bienvenido")}
       }
     } catch (error) {
       console.log(error);

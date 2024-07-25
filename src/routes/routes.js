@@ -1,7 +1,4 @@
 import {
-    faHouse,
-    faPersonPraying,
-    faVideo,
     faArrowRightFromBracket,
     faChartLine,
     faEye,
@@ -12,18 +9,18 @@ import {
   export const routes = [
     {
       id: 1,
-      path: "/AgregarAsistente",  
+      path: "/",  
       text: "Registrar visitantes", 
       icon:  faList },
     {
       id: 2,
-      path: "/AsistenciaVisitantes",
+      path: "/TomarAsistencia",
       text: "Tomar asistencia",
       icon: faCheck ,
     },
     { 
       id: 3,
-      path: "/RegularidadVisitantes", 
+      path: "/VerAsistencia", 
       text: "Ver asistencia",
       icon: faEye
   },
@@ -39,7 +36,7 @@ import {
     icon: faChartLine,},
   {
     id: 6,
-    path: "/",  
+    path: "/login",  
     text: "Cerrar sesión",
     icon: faArrowRightFromBracket,
   }

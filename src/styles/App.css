@@ -337,6 +337,10 @@ a {
   text-decoration: none;
 }
 
+.my-swal {
+  z-index: 9999;
+}
+
 .containerForm {
   width: 100%;
   min-height: 100vh;
@@ -441,12 +445,13 @@ a {
   align-items: center;
   flex-direction: column;
   justify-content: center;
+  margin-top: 3rem;
 }
 .cardContainer .formulario .loginBoton {
   border-radius: 2rem;
   color: #fff;
   width: 100%;
-  background: linear-gradient(to right, #54a634, #97b462);
+  background: linear-gradient(to right, #0C4D0A, #97b462);
   border: none;
   font-size: 1.5rem;
   padding: 0.8rem;
@@ -455,6 +460,14 @@ a {
 }
 .cardContainer .formulario .loginBoton:hover {
   cursor: pointer;
+  background: #97b462;
+  color: #0C4D0A;
+  font-weight: 700;
+}
+.cardContainer .formulario .loginBoton.disable {
+  text-align: center;
+  pointer-events: none;
+  opacity: 0.4;
 }
 .cardContainer .formulario .registro {
   text-align: center;
@@ -497,7 +510,7 @@ a {
   height: 20rem;
   width: 100%;
   padding: 2rem 2rem;
-  background-color: #54a634;
+  background-color: #0C4D0A;
 }
 @media (min-width: 480px) {
   .containerFooter {
@@ -622,11 +635,11 @@ a {
   height: 2.6rem;
 }
 .containerMenu .svg-inline--fa:hover {
-  color: #54a634;
+  color: #0C4D0A;
   cursor: pointer;
 }
 .containerMenu.sidebarOpen {
-  background-color: #54a634;
+  background-color: #0C4D0A;
   width: 65%;
   height: 50vh;
   position: fixed;
@@ -652,7 +665,7 @@ a {
   text-align: center;
 }
 .containerMenu .itemMenu:hover, .containerMenu .itemMenu.activeLink, .containerMenu .itemMenu:hover .iconMenu, .containerMenu .itemMenu.activeLink .iconMenu {
-  color: #04441C;
+  color: #97b462;
 }
 .containerMenu .itemMenu.sidebarOpen {
   height: 15%;
@@ -663,7 +676,7 @@ a {
   content: none;
 }
 .containerMenu .itemMenu.sidebarOpen:hover, .containerMenu .itemMenu.sidebarOpen.activeLink, .containerMenu .itemMenu.sidebarOpen:hover .iconMenu, .containerMenu .itemMenu.sidebarOpen.activeLink .iconMenu {
-  color: #04441C;
+  color: #97b462;
 }
 .containerMenu .itemMenu .iconMenu {
   width: 1.5rem;
@@ -677,7 +690,7 @@ a {
   height: 6rem;
   width: 100%;
   padding: 0 2rem;
-  background-color: #54a634;
+  background-color: #0C4D0A;
   overflow: hidden;
   gap: 2rem;
   position: fixed;
@@ -690,16 +703,16 @@ a {
   }
 }
 .containerHeader.scrolled {
-  background-color: #54a634;
+  background-color: #0C4D0A;
 }
 .containerHeader.scrolled .itemMenu:hover, .containerHeader.scrolled .itemMenu.activeLink, .containerHeader.scrolled .itemMenu:hover .iconMenu, .containerHeader.scrolled .itemMenu.activeLink .iconMenu {
-  color: #04441C;
+  color: #97b462;
 }
 .containerHeader.scrolled .itemMenu:hover {
-  color: #04441C;
+  color: #97b462;
 }
 .containerHeader.scrolled .itemMenu.activeLink {
-  color: #04441C;
+  color: #97b462;
 }
 .containerHeader.scrolled .itemMenu.activeLink::after {
   background-color: #04441C;
@@ -869,12 +882,12 @@ a {
   border: solid 0.01rem gray;
   border-radius: 0.3rem;
   background-color: #fff;
-  color: #54a634;
+  color: #0C4D0A;
 }
 .containerTable .containerFiltros .sectionFiltros .containerFiltroXNombre .closeFiltroNombre:hover {
   cursor: pointer;
   color: #fff;
-  background-color: #54a634;
+  background-color: #0C4D0A;
 }
 .containerTable .table {
   width: 100%;
@@ -889,6 +902,7 @@ a {
 }
 .containerTable .table .contenedorAsistente {
   font-size: 1.2rem;
+  height: 3rem;
   text-transform: uppercase;
 }
 .containerTable .table .contenedorTituloTabla {
@@ -901,17 +915,11 @@ a {
 .containerTable .table .encabezadoTabla.nombre {
   text-align: left;
 }
-.containerTable .table .contenidoTabla {
-  padding: 1rem 0;
-}
-.containerTable .table .contenidoTabla.checkboxCell {
-  text-align: center;
-}
 .containerTable .table .contenidoTabla.registrador {
   text-align: center;
 }
 .containerTable .buttonAsistenciaNuevos {
-  background-color: #54a634;
+  background-color: #0C4D0A;
   font-size: 1.3rem;
   color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
@@ -921,6 +929,12 @@ a {
   border: 0px;
   padding: 1rem 2rem;
   border-radius: 1rem;
+}
+.containerTable .buttonAsistenciaNuevos:hover {
+  cursor: pointer;
+  background-color: #7CAC41;
+  color: #0C4D0A;
+  font-weight: 700;
 }
 
 select {
@@ -939,6 +953,52 @@ select {
   .fechaAsistencia {
     width: auto;
   }
+}
+
+.containerCheckbox {
+  width: 100%;
+  padding: 0 1rem 0 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+.containerCheckbox .asistencia, .containerCheckbox .inasistencia {
+  border-radius: 0.4rem;
+  height: 2rem;
+  width: 2rem;
+  margin: 0.5rem 0 0.5rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #000;
+}
+.containerCheckbox .asistencia:hover, .containerCheckbox .inasistencia:hover {
+  cursor: pointer;
+  color: #fff;
+}
+.containerCheckbox .asistencia {
+  background-color: gray;
+  opacity: 0.7;
+}
+.containerCheckbox .asistencia:hover {
+  background-color: #0C4D0A;
+}
+.containerCheckbox .asistencia.clicadoAsistencia {
+  background-color: #0C4D0A;
+  color: #fff;
+  opacity: 1;
+}
+.containerCheckbox .inasistencia {
+  background-color: gray;
+  opacity: 0.7;
+}
+.containerCheckbox .inasistencia:hover {
+  background-color: #D60F0F;
+}
+.containerCheckbox .inasistencia.clicadoInasistencia {
+  background-color: #D60F0F;
+  color: #fff;
+  opacity: 1;
 }
 
 .MuiDialogActions-root.MuiDialogActions-spacing.css-knqc4i-MuiDialogActions-root {
@@ -1002,7 +1062,7 @@ select {
   right: 0;
   top: 0;
   margin: 2rem;
-  color: #54a634;
+  color: #0C4D0A;
 }
 .closeModal:hover {
   cursor: pointer;
@@ -1076,6 +1136,214 @@ select {
   padding: 0.5rem;
   width: 12rem;
   justify-content: center;
+}
+
+.detalleNuevoProspMiembros {
+  display: flex;
+  width: 100%;
+  justify-content: start;
+  align-items: center;
+}
+@media (min-width: 480px) {
+  .detalleNuevoProspMiembros {
+    justify-content: center;
+    align-items: center;
+  }
+}
+.detalleNuevoProspMiembros .containerIconProspMiembros .iconUser {
+  margin-right: 3rem;
+  height: 4rem;
+  color: #97b462;
+}
+.detalleNuevoProspMiembros .nombre {
+  font-size: 1.5rem;
+  color: #97b462;
+  height: 3rem;
+  padding: 0.5rem;
+  width: 12rem;
+  font-weight: bold;
+}
+
+.tablaVertical th,
+.tablaVertical td {
+  writing-mode: vertical-lr;
+  text-orientation: mixed;
+  padding: 5px;
+}
+
+.containerProspMiembro {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.containerProspMiembro .boxImage {
+  position: relative;
+  border-radius: 50%;
+  background-color: #04441C;
+  overflow: hidden;
+  width: 8rem;
+  height: 8rem;
+  margin-top: 1rem;
+}
+@media (min-width: 768px) {
+  .containerProspMiembro .boxImage {
+    width: 14rem;
+    height: 14rem;
+  }
+}
+.containerProspMiembro .boxImage::before {
+  content: "";
+  position: absolute;
+  inset: -1rem 3rem;
+  background: linear-gradient(315deg, #E1F1C1, #7CAC41);
+  transition: 0.5s;
+  animation: animate 4s linear infinite;
+}
+.containerProspMiembro .boxImage::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  background: #fff;
+  border-radius: 50%;
+  z-index: 1;
+}
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+  }
+  0% {
+    transform: rotate(360deg);
+  }
+}
+.containerProspMiembro .content {
+  position: absolute;
+  inset: 0.6rem;
+  border: 2px solid #04441C;
+  z-index: 3;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.containerProspMiembro .content img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.5s;
+  pointer-events: none;
+  z-index: 3;
+}
+.containerProspMiembro .content .iconUser {
+  height: 3rem;
+  color: #04441C;
+}
+@media (min-width: 768px) {
+  .containerProspMiembro .content .iconUser {
+    height: 7rem;
+  }
+}
+.containerProspMiembro .containerInfoProspMiembros {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.containerProspMiembro .containerInfoProspMiembros .infoProspMiembros {
+  display: flex;
+  font-size: 1.2rem;
+  color: #0C4D0A;
+  padding: 0 0.5rem 0 1rem;
+  width: 12rem;
+  font-weight: bold;
+  width: 15rem;
+  align-items: center;
+}
+.containerProspMiembro .containerInfoProspMiembros .infoProspMiembros.nombre {
+  color: #0C4D0A;
+  height: 2rem;
+}
+@media (min-width: 768px) {
+  .containerProspMiembro .containerInfoProspMiembros .infoProspMiembros.nombre {
+    height: 4rem;
+  }
+}
+.containerProspMiembro .containerInfoProspMiembros .infoProspMiembros .visibility {
+  margin-left: 0.7rem;
+  background-color: #97b462;
+  border-radius: 0.3rem;
+  padding: 0.1rem;
+}
+.containerProspMiembro .containerInfoProspMiembros .infoProspMiembros .visibility:hover {
+  cursor: pointer;
+  color: #fff;
+  background-color: #97b462;
+}
+.containerProspMiembro .containerInfoProspMiembros .infoProspMiembros span {
+  color: #97b462;
+}
+@media (min-width: 768px) {
+  .containerProspMiembro .containerInfoProspMiembros .infoProspMiembros {
+    font-size: 1.5rem;
+  }
+}
+
+.sinRegistro {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+  display: flex;
+  font-size: 1.2rem;
+  height: 3rem;
+  width: 100%;
+  background-color: rgba(201, 54, 54, 0.374);
+  border-radius: 0.7rem;
+  align-items: center;
+  padding-left: 1rem;
+  color: rgb(141, 18, 18);
+}
+.sinRegistro .warning {
+  color: rgb(141, 18, 18);
+  padding-right: 0.5rem;
+}
+.sinRegistro:first-of-type {
+  margin-bottom: 1rem;
+}
+@media (min-width: 1024px) {
+  .sinRegistro {
+    font-size: 1.4rem;
+  }
+}
+
+.graficTitle {
+  display: flex;
+  justify-content: center;
+  height: 4rem;
+  color: #04441C;
+  align-items: center;
+  font-weight: 700;
+}
+
+.asistenciaListContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+.asistenciaListContainer .title {
+  color: #fff;
+  font-weight: 700;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  background-color: #0C4D0A;
+}
+.asistenciaListContainer .fecha {
+  background-color: #cce1a2;
+  color: #0C4D0A;
+  padding: 0.3rem 1rem;
+  border-radius: 0.3rem;
+  font-size: 1.3rem;
 }
 
 .register-confirm-container {

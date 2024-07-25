@@ -101,7 +101,7 @@
             align-items: center;
             flex-direction: column;
             justify-content: center;
-            
+            margin-top: 3rem;
         }
 
         .loginBoton{
@@ -116,6 +116,14 @@
                 box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
             &:hover{
                 cursor: pointer;
+                background: v.$terciario;
+                color: v.$secundario;
+                font-weight: 700;
+            }
+            &.disable{
+                text-align: center;
+                pointer-events: none;
+                opacity: .4;
             }
         }
         .registro{
@@ -145,14 +153,6 @@
     }
 }  
 
-//input form
-// .MuiInputBase-input{
-//     &.MuiOutlinedInput-input{
-//         &.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input{
-//             font-size: 1.5rem;
-//         }
-//     }
-// }
 .css-1x5jdmq{
     font-size: 1.5rem;
     &:focus{
@@ -160,26 +160,10 @@
     }
 }
 
-//label form registro
-// .MuiInputLabel-outlined{
-//     &.css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root{
-//         font-size: 1.5rem;
-//     }
-// } 
 .css-p0rm37{
     font-size: 1.5rem;
 }
 
-//borde nombre y apellido
-// .MuiInputBase-formControl{
-//     &.css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root{
-//         font-size: 1.5rem;
-//     }
-//     //otros bordes de inputs como dirección, telefono, etc
-//     &.css-md26zr-MuiInputBase-root-MuiOutlinedInput-root{
-//         font-size: 1.5rem;
-//     }
-// }
 .css-1v4ccyo{
     font-size: 2rem;
 }

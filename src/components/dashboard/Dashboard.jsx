@@ -14,6 +14,8 @@ import {
 
 
 const Dashboard = () => {
+  const adminNuevos = import.meta.env.VITE_ADMINNUEVOS;
+  const adminProspMiembros = import.meta.env.VITE_ADMINPROSPMIEMBROS;
   const [userSelected, setUserSelected] = useState(null);
   const [isChange, setIsChange] = useState(false);
   const [users, setUsers] = useState([]);
@@ -46,7 +48,7 @@ const Dashboard = () => {
       const userCollection = collection(db, "users");
       const userEditado = {
         ...userSelected,
-        rol: newRol === "admin" ? "aB3xY7zK" : "user",
+        rol: newRol === "adminNuevos" ? adminNuevos : newRol === "user" ? "user" : adminProspMiembros,
       };
 
       await updateDoc(doc(userCollection, userSelected.id), userEditado);
@@ -111,17 +113,25 @@ const Dashboard = () => {
                   >
                         {loading & userSelected?.nombre === user?.nombre && <option>Loading...</option>} : 
                         
-                          {user.rol === "aB3xY7zK" ?(
+                          {user.rol === adminNuevos ?(
                             <>
-                            <option value="admin">Admin</option>
+                            <option value="adminNuevos">Admin nuevos</option>
                             <option value="user">User</option>
+                            <option value="adminMiembros">Admin miembros</option>
                             </>
-                          ) : (
+                          ) : user.rol === "user" ?
                             <>
                             <option value="user">User</option>
-                            <option value="admin">Admin</option>
+                            <option value="adminMiembros">Admin miembros</option>
+                            <option value="adminNuevos">Admin nuevos</option>
                             </>
-                          )}
+                           : 
+                            <>
+                            <option value="adminMiembros">Admin miembros</option>
+                            <option value="user">User</option>
+                            <option value="adminNuevos">Admin Nuevos</option>
+                            </>
+                          }
                         
                       
                   </select>

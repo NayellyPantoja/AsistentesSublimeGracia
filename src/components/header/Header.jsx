@@ -11,7 +11,8 @@ import Navbar from "./Navbar";
 
 const Header = () => {
   const { logoutContext, isLogged, user } = useContext(AuthContext);
-  const admin = import.meta.env.VITE_ADMIN;
+  const adminNuevos = import.meta.env.VITE_ADMINNUEVOS;
+  const adminProspMiembros = import.meta.env.VITE_ADMINPROSPMIEMBROS;
   const [scrolled, setScrolled] = useState(false);
   const [pantalla, setPantalla] = useState(false);
   const [sidebar, setSidebar] = useState(false);
@@ -48,7 +49,7 @@ const Header = () => {
   return (
     <div className={`containerHeader ${scrolled || location.pathname === "/dashboard" ? "scrolled" : ""}`}>
       <div className="containerLogo">
-        <Link to="/AgregarAsistente">
+        <Link to="/">
           <img className="logoImagen" src={logoImagen} alt="Logo Sublime Gracia" />
           <img className="logoLetras" src={logoLetras} alt="Logo Sublime Gracia" />
         </Link>
@@ -62,7 +63,8 @@ const Header = () => {
               routes={routes}
               isLogged={isLogged}
               user={user}
-              admin={admin}
+              adminNuevos={adminNuevos}
+              adminProspMiembros={adminProspMiembros}
               sidebar={sidebar}
               handleLogout={handleLogout}
             />

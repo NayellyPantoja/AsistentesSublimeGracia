@@ -1,0 +1,24 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.asistenciaListContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .5rem;
+    .title{
+        color: v.$blanco;
+        font-weight: 700;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
+        padding: 1rem 2rem;
+        border-radius: .5rem;
+        background-color: v.$secundario;
+    }
+    .fecha{
+        background-color: v.$cardSola2;
+        color: v.$secundario;
+        padding: .3rem 1rem;
+        border-radius: .3rem;
+        font-size: 1.3rem;
+    }
+}

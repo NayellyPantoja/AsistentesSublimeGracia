@@ -25,13 +25,13 @@
             &.activeLink,
             &:hover .iconMenu,
             &.activeLink .iconMenu{
-                color: v.$verdeOscuro
+                color: v.$terciario
             }
             &:hover{
-                color: v.$verdeOscuro
+                color: v.$terciario
             };
             &.activeLink{
-                color: v.$verdeOscuro;
+                color: v.$terciario;
                 &::after{
                     background-color: v.$verdeOscuro;
                 }

@@ -23,16 +23,17 @@ function AppRouter() {
     >
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Login/>}/>
+          <Route path="/login" element={<Login/>}/>
           <Route path="/registro" element={<Register />}/>
           <Route path="/olvideMiContraseña" element={<ForgotPassword />}/>
-          <Route path="/bienvenido" element={<SinPermisos />}/>
+          
           
           <Route element={<ProtectedAdmin/>}>
-          <Route path="dashboard" element={<DashboardPage />} />
-          <Route path="/AgregarAsistente" element={<FormAddPerson/>}/>
-          <Route path="/AsistenciaVisitantes" element={<AsistenciaNuevosPage/>}/>
-          <Route path="/RegularidadVisitantes" element={<RegularidadNuevos/>}/>
+          <Route path="/bienvenido" element={<SinPermisos />}/>
+          <Route path="/dashboard" element={<DashboardPage />} />
+          <Route path="/" element={<FormAddPerson/>}/>
+          <Route path="/TomarAsistencia" element={<AsistenciaNuevosPage/>}/>
+          <Route path="/VerAsistencia" element={<RegularidadNuevos/>}/>
           </Route>
         </Routes>
       </BrowserRouter>

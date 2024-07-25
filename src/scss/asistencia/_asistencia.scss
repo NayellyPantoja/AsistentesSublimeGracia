@@ -23,6 +23,7 @@
         
     }
     
+    
     .containerFiltros{
         display: flex;
         width: 100%;
@@ -94,6 +95,7 @@
         }
         .contenedorAsistente{
             font-size: 1.2rem;
+            height: 3rem;
             text-transform: uppercase;
         }
         .contenedorTituloTabla{
@@ -109,10 +111,6 @@
         }
         
         .contenidoTabla{
-            padding: 1rem 0;
-            &.checkboxCell{
-                text-align: center;
-            }
             &.registrador{
                 text-align: center;
             }
@@ -130,6 +128,12 @@
         border: 0px;
         padding: 1rem 2rem;
         border-radius: 1rem;
+        &:hover{
+            cursor: pointer;
+            background-color: v.$primario;
+            color: v.$secundario;
+            font-weight: 700;
+        }
     }
 }
 select{
@@ -142,6 +146,52 @@ select{
     width: 100%;
     @include m.tablet{
         width: auto;
+    }
+}
+
+.containerCheckbox{
+    width: 100%;
+    padding: 0 1rem 0 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    .asistencia, .inasistencia{
+        border-radius: .4rem;
+        height: 2rem;
+        width: 2rem;
+        margin: .5rem 0 .5rem 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: v.$negro;
+        &:hover{
+            cursor: pointer;
+            color: v.$blanco;
+        }
+    }
+    .asistencia{
+        background-color: gray;
+        opacity: .7;
+        &:hover{
+            background-color: v.$secundario;
+        }
+        &.clicadoAsistencia{
+            background-color: v.$secundario;
+            color:  v.$blanco;
+            opacity: 1;
+        }
+    }
+    .inasistencia{
+        background-color: gray;
+        opacity: .7;
+        &:hover{
+            background-color: v.$checkInasistencia2;
+        }
+        &.clicadoInasistencia{
+            background-color: v.$checkInasistencia2;
+            color: v.$blanco;
+            opacity: 1;
+        }
     }
 }
 
