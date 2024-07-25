@@ -17,10 +17,10 @@ const ModalDetalleNuevos = ({ open, handleClose, selectedAsistente}) => {
     const [openAsistencias, setOpenAsistencias] = useState(false)
     const [openInasistencias, setOpenInasistencias] = useState(false)
     const [fechasAsistidas, setFechasAsistidas] = useState(selectedAsistente?.diasAsistidos?.map(
-      (asistencia) => asistencia || [])
+      (asistencia) => asistencia || null)
     );
     const [fechasInasistidas, setFechasInasistidas] = useState(selectedAsistente?.inasistencias?.map(
-      (inasistencia) => inasistencia.fecha || [])
+      (inasistencia) => inasistencia.fecha || null)
     );
 
     if (!selectedAsistente) {
