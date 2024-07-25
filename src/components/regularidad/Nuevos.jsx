@@ -203,14 +203,6 @@ const Nuevos = () => {
                       component="th"
                       scope="row"
                       align="left"
-                      style={{ fontSize: "1.2rem", textAlign: "center" }}
-                    >
-                      {asistente.inasistencias?.length}
-                    </TableCell>
-                    <TableCell
-                      component="th"
-                      scope="row"
-                      align="left"
                       style={{
                         fontSize: "1.2rem",
                         textTransform: "uppercase",
