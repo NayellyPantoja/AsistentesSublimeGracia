@@ -115,16 +115,19 @@ const Nuevos = () => {
               />
             )}
           </div>
+          {user.rol === adminNuevos &&
           <div className="contentIndividualFiltro">
-            Buscar por fecha de registro
-            <input
-              id="fecha"
-              type="date"
-              className="fechaAsistencia"
-              value={fecha}
-              onChange={(e) => setFecha(e.target.value)}
-            />
-          </div>
+          Buscar por fecha de registro
+          <input
+            id="fecha"
+            type="date"
+            className="fechaAsistencia"
+            value={fecha}
+            onChange={(e) => setFecha(e.target.value)}
+          />
+        </div>
+        }
+          
         </div>
       </div>
 
