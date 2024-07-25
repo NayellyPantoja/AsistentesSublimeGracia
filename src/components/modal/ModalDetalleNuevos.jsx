@@ -28,9 +28,9 @@ const ModalDetalleNuevos = ({ open, handleClose, selectedAsistente}) => {
     }
     // console.log(fechasInasistidas)
   
-  const asistencias = selectedAsistente?.diasAsistidos  ? fechasAsistidas.length : 0;
+  const asistencias = selectedAsistente?.diasAsistidos  ? fechasAsistidas?.length : 0;
   const inasistencias = selectedAsistente?.inasistencias
-    ? fechasInasistidas.length
+    ? fechasInasistidas?.length
     : 0;
   const restantes = 12 - asistencias - inasistencias;
 

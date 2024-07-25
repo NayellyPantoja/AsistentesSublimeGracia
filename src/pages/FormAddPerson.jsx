@@ -42,6 +42,7 @@ const FormAddPerson = () => {
     nota: "",
     img: "",
     registrador: user.nombre + " " + user.apellido,
+    inasistencias: user.rol === adminProspMiembros && [],
     diasAsistidos:
       user.rol === adminNuevos
         ? [fechaAsistencia]
