@@ -154,19 +154,7 @@ const Nuevos = () => {
               >
                 {user.rol === adminNuevos ? "Visitas" : "Asistencias"}
               </TableCell>
-              {user.rol === adminProspMiembros && 
-              <TableCell
-              align="left"
-              style={{
-                fontSize: "1.2rem",
-                fontWeight: "bolder",
-                textTransform: "uppercase",
-                textAlign: "center",
-              }}
-            >
-              Inasistencias
-            </TableCell>
-              }
+              
               <TableCell
                 align="left"
                 style={{
