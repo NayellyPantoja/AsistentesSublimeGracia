@@ -91,7 +91,7 @@ const Nuevos = () => {
       <div className="containerFiltros">
         <div className="sectionFiltros">
           <div className="containerFiltroXNombre">
-            Buscar por nombre del prospecto miembro
+            {user.rol === adminNuevos ? "Buscar por nombre del asistente" : "Buscar por nombre del prospecto miembro"}
             <Select
               id="asistente"
               className="filtrarNombre"
