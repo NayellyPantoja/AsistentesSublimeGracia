@@ -1,9 +1,10 @@
+
 import { useContext, useEffect } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { Box, Modal } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-    faTrashCan,
+  faTrashCan,
   faTriangleExclamation,
   faXmark,
 } from "@fortawesome/free-solid-svg-icons";
@@ -15,18 +16,16 @@ const ModalInasistencias = ({
   openInasistencias,
   selectedAsistente,
   handleCloseInasistencias,
-  fechasInasistidas, setFechasInasistidas
+  fechasInasistidas,
+  setFechasInasistidas
 }) => {
   const { style } = useContext(AuthContext);
-  console.log("Hola", fechasInasistidas);
-
+  console.log( "fechas", fechasInasistidas)
   useEffect(() => {
-    console.log(fechasInasistidas)
-  },[fechasInasistidas])
-
+    console.log(fechasInasistidas);
+  }, [fechasInasistidas]);
 
   const deleteFecha = async (fechaAEliminar, documentId) => {
-    console.log(fechaAEliminar, documentId)
     try {
       const shouldDelete = await Swal.fire({
         title: "¿Estás seguro?",
@@ -38,25 +37,27 @@ const ModalInasistencias = ({
         confirmButtonText: "Sí, eliminarlo",
         cancelButtonText: "Cancelar",
         customClass: {
-            container: 'my-swal'
-          },
+          container: 'my-swal'
+        },
       });
 
       if (shouldDelete.isConfirmed) {
         const docRef = doc(db, "prospectosMiembros", documentId);
-        console.log(docRef)
-        const diasSinAsistir = fechasInasistidas || [];
-        console.log("DiasSinAsistir", diasSinAsistir)
-        const nuevoDiasSinAsistir = diasSinAsistir.filter(
-          (fecha) => fecha !== fechaAEliminar
+
+        
+        const nuevoDiasSinAsistir = selectedAsistente.inasistencias.filter(
+          (inasistencia) => inasistencia.fecha !== fechaAEliminar
         );
-        console.log("nuevosDias", nuevoDiasSinAsistir)
 
         await updateDoc(docRef, {
           inasistencias: nuevoDiasSinAsistir,
         });
-        setFechasInasistidas(nuevoDiasSinAsistir)
-       
+        console.log(nuevoDiasSinAsistir);
+
+        const inasistenciasActualizadas = nuevoDiasSinAsistir.map((inasistencia) => inasistencia.fecha)
+
+        setFechasInasistidas(inasistenciasActualizadas);
+
         Swal.fire({
           title: "Eliminado",
           text: `La fecha ${fechaAEliminar} ha sido eliminada`,
@@ -68,23 +69,17 @@ const ModalInasistencias = ({
         });
       }
     } catch (error) {
-      console.error("Error al eliminar el fecha:", error);
+      console.error("Error al eliminar la fecha:", error);
       Swal.fire({
         title: "Error",
         text: "Hubo un error al intentar eliminar la fecha seleccionada",
         icon: "error",
         customClass: {
-            container: 'my-swal'
-          },
-      }
-        
-        
-        
-        
-      );
+          container: 'my-swal'
+        },
+      });
     }
   };
-
 
   return (
     <Modal
@@ -99,22 +94,20 @@ const ModalInasistencias = ({
           className="closeModal"
         />
         <div className="asistenciaListContainer">
-        <div className="title">INASISTENCIAS</div>
+          <div className="title">INASISTENCIAS</div>
           {fechasInasistidas.length >= 1 ? (
-            fechasInasistidas?.map((fechaObj, index) => (
-              <div key={index} className="fecha">{fechaObj}{" "}
-              {console.log("fechaObj", fechaObj)}
-              <FontAwesomeIcon
-                icon={faTrashCan}
-                className="botonDelete pastor"
-                onClick={() => {
-                  deleteFecha(fechaObj, selectedAsistente.id);
-                }}
-              /></div>
+            fechasInasistidas.map((inasistencia, index) => (
+              <div key={index} className="fecha">
+                {inasistencia} 
+                <FontAwesomeIcon
+                  icon={faTrashCan}
+                  className="botonDelete pastor"
+                  onClick={() => deleteFecha(inasistencia, selectedAsistente.id)}
+                />
+              </div>
             ))
           ) : (
             <div className="sinRegistro">
-              {" "}
               <FontAwesomeIcon
                 icon={faTriangleExclamation}
                 className="warning"
