@@ -32,23 +32,26 @@ const FormAddPerson = () => {
   const [imgCargada, setImgCargada] = useState(false);
   console.log("imagenCargada: ", imgCargada)
   console.log("file: ", file)
-  const [nuevo, setNuevo] = useState({
-    nombre: "",
-    apellido: "",
-    direccion: "",
-    barrio: "",
-    telefono: "",
-    edad: "",
-    nota: "",
-    img: "",
-    registrador: user.nombre + " " + user.apellido,
-    inasistencias: user.rol === adminProspMiembros && [],
-    diasAsistidos:
-      user.rol === adminNuevos
-        ? [fechaAsistencia]
-        : user.rol === adminProspMiembros
-        ? []
-        : [fechaAsistencia],
+  
+  const [nuevo, setNuevo] = useState(() => {
+    const baseState = {
+      nombre: "",
+      apellido: "",
+      direccion: "",
+      barrio: "",
+      telefono: "",
+      edad: "",
+      nota: "",
+      img: "",
+      registrador: user.nombre + " " + user.apellido,
+      diasAsistidos: user.rol === adminNuevos || user.rol !== adminProspMiembros ? [fechaAsistencia] : [],
+    };
+  
+    if (user.rol === adminProspMiembros) {
+      baseState.inasistencias = [];
+    }
+  
+    return baseState;
   });
 
   const handleChange = (e) => {
