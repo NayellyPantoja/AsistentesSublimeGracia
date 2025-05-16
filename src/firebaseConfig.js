@@ -4,6 +4,8 @@ import {collection, doc, getDoc, getFirestore} from "firebase/firestore"
 import {getStorage, ref, uploadBytes, getDownloadURL} from "firebase/storage"
 import {v4} from "uuid"
 
+
+
  const firebaseConfig = {
   apiKey: import.meta.env.VITE_APIKEY,
   authDomain: import.meta.env.VITE_AUTHDOMAIN,
@@ -12,6 +14,8 @@ import {v4} from "uuid"
   messagingSenderId: import.meta.env.VITE_MESSAGINGSENDERID,
   appId: import.meta.env.VITE_APPID
 };
+
+
 
  const app = initializeApp(firebaseConfig);
 

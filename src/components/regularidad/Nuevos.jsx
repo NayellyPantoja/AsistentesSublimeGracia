@@ -37,7 +37,11 @@ const Nuevos = () => {
 
   useEffect(() => {
     const ordenados = [...asistentes].sort(
-      (a, b) => b.diasAsistidos.length - a.diasAsistidos.length
+      //(a, b) => b.diasAsistidos.length - a.diasAsistidos.length
+      (a, b) => {
+        const lenA = Array.isArray(a.diasAsistidos) ? a.diasAsistidos.length : 0;
+        const lenB = Array.isArray(b.diasAsistidos) ? b.diasAsistidos.length : 0;
+        return lenB - lenA;}
     );
     setAsistentesOrdenados(ordenados);
   }, [asistentes]);
@@ -86,6 +90,7 @@ const Nuevos = () => {
     setNombreAsistenteSeleccionado("");
   };
 
+
   return (
     <div className="containerTable">
       <div className="containerFiltros">
@@ -103,8 +108,8 @@ const Nuevos = () => {
                   setIsChange(!isChange);
               }}
               options={asistentesOrdenados.map((asistente) => ({
-                value: asistente.id,
-                label: `${asistente.nombre} ${asistente.apellido}`,
+                value: asistente?.id,
+                label: `${asistente?.nombre} ${asistente?.apellido}`,
               }))}
             />
             {nombreAsistenteSeleccionado && (
@@ -180,7 +185,7 @@ const Nuevos = () => {
                 )
                 .map((asistente) => (
                   <TableRow
-                    key={asistente.id}
+                    key={asistente?.id}
                     sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                   >
                     <TableCell
@@ -189,7 +194,7 @@ const Nuevos = () => {
                       align="left"
                       style={{ fontSize: "1.2rem", textTransform: "uppercase" }}
                     >
-                      {`${asistente.nombre} ${asistente.apellido}`}
+                      {`${asistente?.nombre} ${asistente?.apellido}`}
                     </TableCell>
                     <TableCell
                       component="th"
@@ -197,7 +202,7 @@ const Nuevos = () => {
                       align="left"
                       style={{ fontSize: "1.2rem", textAlign: "center" }}
                     >
-                      {asistente.diasAsistidos?.length}
+                      {asistente?.diasAsistidos?.length}
                     </TableCell>
                     <TableCell
                       component="th"
